@@ -1,0 +1,133 @@
+.services-section {
+ 
+  padding: 0px 8% 100px;
+
+  background: #ffffff;
+  
+}
+
+.services-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.service-tag {
+ font-family: "Dancing Script", cursive;
+    font-size: 42px;
+    font-weight: 700;
+    color: #F4B73D;   /* logo color */
+    margin-bottom: 18px;
+}
+
+.services-header span {
+  color: #F4B73D;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.services-header  h2{
+  font-size: 48px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+  max-width: 700px;
+  margin-bottom: 70px;
+}
+
+
+.services-header p {
+    margin-top: 20px;
+    margin-bottom: 40px;
+ 
+  max-width: 700px;
+  color: #64748b;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: #F4B73D;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+  background: #eff6ff;
+  color: #2563eb;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card h3 {
+  margin-top: 25px;
+  color: #0f172a;
+  font-size: 24px;
+}
+
+.service-card p {
+  margin-top: 15px;
+  color: #64748b;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-header h2 {
+    font-size: 38px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .services-section {
+    padding: 80px 20px;
+  }
+
+  .service-tag{
+    font-size: 22px;
+  }
+   
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-header h2 {
+    font-size: 30px;
+  }
+
+  .services-header p {
+    font-size: 16px;
+  }
+
+  .service-card {
+    padding: 28px;
+  }
+  .services-section {
+  padding: 0px 8% 100px;
+}
+}
