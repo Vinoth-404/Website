@@ -90,33 +90,72 @@ font-family: "Dancing Script", cursive;
 
 /* Mobile */
 
-@media (max-width:768px){
+/* Mobile */
+/* Mobile */
 
-  .why-choose{
-    padding:80px 5%;
-  }
+@media(max-width:768px){
 
-  .why-title{
-    font-size:36px;
-  }
+    .why-choose{
+        padding:80px 5%;
+    }
 
-  .why-choose-tag{
-    font-size:22px;
-    letter-spacing:2px;
-  }
+    .why-title{
+        font-size:36px;
+    }
 
-  .slider-track-right,
-  .slider-track-left{
-    animation:none !important;
-    transform:none !important;
-    flex-direction:column;
-    width:100%;
-  }
+    .why-choose-tag{
+        font-size:22px;
+        letter-spacing:2px;
+    }
 
-  .slider-track-right .why-card,
-  .slider-track-left .why-card{
-    min-width:100%;
-  }
+    /* Hide Desktop */
+
+    .desktop-slider{
+        display:none;
+    }
+
+    /* Show Mobile */
+
+    .mobile-slider{
+        display:block;
+        overflow:hidden;
+        width:100%;
+    }
+
+    .mobile-track{
+
+        display:flex;
+        gap:18px;
+
+        width:max-content;
+
+        animation:mobileSlider 18s linear infinite;
+
+    }
+
+    .mobile-track:hover{
+        animation-play-state:paused;
+    }
+
+    .mobile-track .why-card{
+
+        width:280px;
+        flex-shrink:0;
+
+    }
+
+}
+
+@keyframes mobileSlider{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
 }
 
 .why-card{

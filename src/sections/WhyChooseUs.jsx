@@ -28,33 +28,10 @@ const features = [
   }
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: "easeOut",
-    },
-  },
-};
-
 export default function WhyChooseUs() {
   return (
     <section className="why-choose" id="why-choose">
+
       <div className="why-container">
 
         <motion.p
@@ -86,53 +63,95 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         />
+
       </div>
 
       <div className="why-slider-container">
 
-  {/* First Row */}
-  <div className="slider-wrapper">
-    <motion.div
-      className="slider-track-right"
-      animate={{ x: [0, 100, 0] }}
-      transition={{
-        duration: 10,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-    >
-      {features.slice(0, 3).map((item, index) => (
-        <div className="why-card" key={index}>
-          <div className="why-icon">✓</div>
-          <h3>{item.title}</h3>
-          <p>{item.desc}</p>
-        </div>
-      ))}
-    </motion.div>
-  </div>
+        {/* ================= DESKTOP ================= */}
 
-  {/* Second Row */}
-  <div className="slider-wrapper">
-    <motion.div
-      className="slider-track-left"
-      animate={{ x: [0, -100, 0] }}
-      transition={{
-        duration: 10,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-    >
-      {features.slice(3, 6).map((item, index) => (
-        <div className="why-card" key={index}>
-          <div className="why-icon">✓</div>
-          <h3>{item.title}</h3>
-          <p>{item.desc}</p>
-        </div>
-      ))}
-    </motion.div>
-  </div>
+        <div className="desktop-slider">
 
-</div>
+          {/* Row 1 */}
+          <div className="slider-wrapper">
+
+            <motion.div
+              className="slider-track-right"
+              animate={{ x: [0, 100, 0] }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              {features.slice(0, 3).map((item, index) => (
+                <div className="why-card" key={index}>
+                  <div className="why-icon">✓</div>
+
+                  <h3>{item.title}</h3>
+
+                  <p>{item.desc}</p>
+
+                </div>
+              ))}
+            </motion.div>
+
+          </div>
+
+          {/* Row 2 */}
+          <div className="slider-wrapper">
+
+            <motion.div
+              className="slider-track-left"
+              animate={{ x: [0, -100, 0] }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              {features.slice(3, 6).map((item, index) => (
+                <div className="why-card" key={index}>
+                  <div className="why-icon">✓</div>
+
+                  <h3>{item.title}</h3>
+
+                  <p>{item.desc}</p>
+
+                </div>
+              ))}
+            </motion.div>
+
+          </div>
+
+        </div>
+
+        {/* ================= MOBILE ================= */}
+
+        <div className="mobile-slider">
+
+          <div className="mobile-track">
+
+            {[...features, ...features].map((item, index) => (
+
+              <div className="why-card" key={index}>
+
+                <div className="why-icon">✓</div>
+
+                <h3>{item.title}</h3>
+
+                <p>{item.desc}</p>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
   );
 }
