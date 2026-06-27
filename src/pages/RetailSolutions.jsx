@@ -1,5 +1,6 @@
 import "../styles/retail.css";
-
+import { useNavigate } from "react-router-dom";
+  const navigate = useNavigate();
 export default function RetailSolutions() {
   return (
     <div className="retail-page">
@@ -15,7 +16,7 @@ export default function RetailSolutions() {
 </p>
  <button
   className="retail-talk-btn"
-  onClick={() => window.location.href = "/contact"}
+  onClick={() => navigate("/contact")}
 >
   Talk to an Expert
 </button>
@@ -304,7 +305,7 @@ operational efficiency and profitability.
 
  <button
   className="retail-talk-btn"
-  onClick={() => window.location.href = "/contact"}
+  onClick={() => navigate("/contact")}
 >
   Talk to an Expert
 </button>

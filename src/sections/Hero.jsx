@@ -1,5 +1,6 @@
 import "../styles/hero.css";
-
+import { useNavigate } from "react-router-dom";
+  const navigate = useNavigate();
 export default function Hero() {
   return (
     <section className="hero" id="hero">
@@ -29,7 +30,7 @@ export default function Hero() {
         <div className="hero-buttons">
           <button
             className="hero-primary-btn"
-            onClick={() => (window.location.href = "/contact")}
+            onClick={() => navigate("/contact")}
           >
             Talk to an Expert
           </button>

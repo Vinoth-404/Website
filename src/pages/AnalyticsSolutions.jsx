@@ -1,7 +1,8 @@
 import "../styles/analytics.css";
 import { motion } from "framer-motion";
-
+import { useNavigate } from "react-router-dom";
 export default function AnalyticsSolutions() {
+  const navigate = useNavigate();
   return (
     <div className="analytics-page">
 
@@ -30,10 +31,9 @@ export default function AnalyticsSolutions() {
             Transform raw business data into actionable insights
             with real-time dashboards, reporting and analytics.
           </p>
-
-          <button
+<button
   className="analytics-talk-btn"
-  onClick={() => window.location.href = "/contact"}
+  onClick={() => navigate("/contact")}
 >
   Talk to an Expert
 </button>
@@ -297,7 +297,7 @@ export default function AnalyticsSolutions() {
         </p>
 <button
   className="analytics-talk-btn"
-  onClick={() => window.location.href = "/contact"}
+  onClick={() => navigate("/contact")}
 >
   Talk to an Expert
 </button>

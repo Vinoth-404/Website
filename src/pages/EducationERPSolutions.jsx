@@ -1,6 +1,7 @@
 import "../styles/case-study.css";
 import { motion } from "framer-motion";
-
+import { useNavigate } from "react-router-dom";
+  const navigate = useNavigate();
 export default function EducationERPSolutions() {
   return (
     <div className="case-study">
@@ -22,7 +23,7 @@ export default function EducationERPSolutions() {
           </p>
   <button
   className="education-talk-btn"
-  onClick={() => window.location.href = "/contact"}
+  onClick={() => navigate("/contact")}
 >
   Talk to an Expert
 </button>
@@ -311,7 +312,7 @@ export default function EducationERPSolutions() {
 
         <button
   className="education-talk-btn"
-  onClick={() => window.location.href = "/contact"}
+  onClick={() => navigate("/contact")}
 >
   Talk to an Expert
 </button>
