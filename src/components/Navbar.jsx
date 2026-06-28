@@ -1,42 +1,41 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../styles/navbar.css";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(true);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
-    const handleScroll = () => {
-      if (window.scrollY < 100) {
-        setShowNavbar(true);
-      } else if (window.scrollY > lastScrollY + 10) {
-        setShowNavbar(false);
-      } else if (window.scrollY < lastScrollY - 10) {
-        setShowNavbar(true);
-      }
+  const goToSection = (sectionId) => {
+    closeMenu();
 
-      lastScrollY = window.scrollY;
-    };
+    if (location.pathname === "/") {
+      document
+        .getElementById(sectionId)
+        ?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      setTimeout(() => {
+        document
+          .getElementById(sectionId)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 200);
+    }
+  };
 
   return (
-    <nav className={`navbar ${showNavbar ? "show" : "hide"}`}>
+    <nav className="navbar">
 
       {/* Logo */}
-
       <div className="brand">
-        <Link to="/">
+        <Link to="/" onClick={closeMenu}>
           <img
             src="/images/logo.png"
             alt="CrackOne"
@@ -48,7 +47,6 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-
       <div
         className="menu-toggle"
         onClick={() => setMenuOpen(!menuOpen)}
@@ -57,38 +55,48 @@ export default function Navbar() {
       </div>
 
       {/* Navigation */}
-
       <div className={`nav-links ${menuOpen ? "active" : ""}`}>
 
-        {/* Home page sections */}
+        <button
+          className="nav-btn"
+          onClick={() => goToSection("solutions")}
+        >
+          Solutions
+        </button>
 
-        {location.pathname === "/" ? (
-          <>
-            <a href="#solutions">Solutions</a>
-            <a href="#services">What We Do</a>
-            <a href="#why-choose">Why Us</a>
-            <a href="#process">Process</a>
-          </>
-        ) : (
-          <>
-            <Link to="/#solutions">Solutions</Link>
-            <Link to="/#services">What We Do</Link>
-            <Link to="/#why-choose">Why Us</Link>
-            <Link to="/#process">Process</Link>
-          </>
-        )}
+        <button
+          className="nav-btn"
+          onClick={() => goToSection("services")}
+        >
+          What We Do
+        </button>
 
-        {/* Separate Pages */}
+        <button
+          className="nav-btn"
+          onClick={() => goToSection("why-choose")}
+        >
+          Why Us
+        </button>
 
-        <Link to="/about">Who We Are</Link>
+        <button
+          className="nav-btn"
+          onClick={() => goToSection("process")}
+        >
+          Process
+        </button>
 
-        <Link to="/contact">Contact</Link>
+        <Link to="/about" onClick={closeMenu}>
+          Who We Are
+        </Link>
+
+        <Link to="/contact" onClick={closeMenu}>
+          Contact
+        </Link>
 
       </div>
 
       {/* CTA */}
-
-      <Link to="/contact">
+      <Link to="/contact" onClick={closeMenu}>
         <button className="cta-btn">
           Let's Talk
         </button>
